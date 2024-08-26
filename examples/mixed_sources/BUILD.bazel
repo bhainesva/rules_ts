@@ -1,0 +1,18 @@
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+load("@aspect_rules_js//js:defs.bzl", "js_binary")
+
+ts_project(
+    name = "ts",
+    srcs = ["main.ts"],
+    declaration = True,
+    out_dir = ".",
+    deps = [
+        "//examples/mixed_sources/lib",
+    ],
+)
+
+js_binary(
+    name = "bin",
+    entry_point = ":ts",
+    data = [":ts"],
+)

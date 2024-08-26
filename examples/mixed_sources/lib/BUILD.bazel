@@ -1,0 +1,10 @@
+"""Example of a library that contains both typescript and javascript sources"""
+
+load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
+
+ts_project(
+    name = "lib",
+    srcs = ["lib1.ts", "lib2.ts"],
+    declaration = True,
+    visibility = ["//examples/mixed_sources:__subpackages__"]
+)

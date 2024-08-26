@@ -1,0 +1,1 @@
+export const lib1 = () => console.log("lib1")
