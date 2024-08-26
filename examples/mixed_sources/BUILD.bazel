@@ -5,10 +5,19 @@ ts_project(
     name = "ts",
     srcs = ["main.ts"],
     declaration = True,
+    allow_js = True,
     out_dir = ".",
     deps = [
         "//examples/mixed_sources/lib",
     ],
+    tsconfig = {
+        "compilerOptions": {
+            "rootDirs": [
+                ".",
+                "lib/dist",
+            ],
+        },
+    },
 )
 
 js_binary(
