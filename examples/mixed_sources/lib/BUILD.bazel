@@ -4,7 +4,7 @@ load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 
 ts_project(
     name = "lib",
-    srcs = ["lib1.ts", "lib2.ts"],
+    srcs = ["lib1.ts", "lib2.js"],
     declaration = True,
     visibility = ["//examples/mixed_sources:__subpackages__"]
 )
