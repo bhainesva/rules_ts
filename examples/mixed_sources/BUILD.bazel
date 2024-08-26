@@ -8,6 +8,7 @@ ts_project(
     out_dir = ".",
     deps = [
         "//examples/mixed_sources/lib",
+        "//examples/mixed_sources/lib:lib2",
     ],
 )
 
