@@ -6,6 +6,7 @@ load("@aspect_rules_js//js:defs.bzl", "js_library")
 ts_project(
     name = "lib",
     srcs = ["lib1.ts"],
+    data = ["package.json"],
     declaration = True,
     visibility = ["//examples/mixed_sources:__subpackages__"],
 )
@@ -13,5 +14,6 @@ ts_project(
 js_library(
     name = "lib2",
     types = ["lib2.js"],
+    data = ["package.json"],
     visibility = ["//examples/mixed_sources:__subpackages__"],
 )

@@ -6,15 +6,15 @@ ts_project(
     srcs = ["main.ts"],
     declaration = True,
     out_dir = ".",
+    data = ["package.json"],
     deps = [
         "//examples/mixed_sources/lib:lib",
         "//examples/mixed_sources/lib:lib2",
-        "//examples/js_lib:types",
     ],
 )
 
 js_binary(
     name = "bin",
     entry_point = ":ts",
-    data = [":ts"],
+    data = [":ts", "package.json"],
 )

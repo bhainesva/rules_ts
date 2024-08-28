@@ -1,5 +1,1 @@
-const lib2 = () => console.log("lib2")
-
-module.exports = {
-  lib2,
-}
+export const lib2 = () => console.log("lib2")

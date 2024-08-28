@@ -1,5 +1,6 @@
 {
     "private": true,
+    "type": "module",
     "dependencies": {
         "@angular/compiler-cli": "18.1.0-next.0",
         "@angular/compiler": "^18",
