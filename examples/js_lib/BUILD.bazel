@@ -8,7 +8,7 @@ js_library(
         # A typescript file is required to ensure types will exist within the `JsInfo(types)`
         # that can be passed along the package linking chain. Otherwise no files will be copied
         # into the sandbox for type-checking (even though tsc would pass if only the .js was there).
-        # "index.d.ts", # commenting this line out breaks any ts_project rules that depend on this package.
+        "index.d.ts", # commenting this line out breaks any ts_project rules that depend on this package.
         "index.js",
     ],
     visibility = ["//examples:__subpackages__"],
