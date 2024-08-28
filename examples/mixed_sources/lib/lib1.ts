@@ -1,1 +1,6 @@
-export const lib1 = () => console.log("lib1")
+import { nested } from "./nested/nested"
+
+export const lib1 = () => {
+    nested();
+    console.log("lib1")
+}

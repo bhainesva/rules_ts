@@ -3,17 +3,25 @@ load("@aspect_rules_js//js:defs.bzl", "js_binary")
 
 ts_project(
     name = "ts",
-    srcs = ["main.ts"],
+    srcs = ["main.ts", "//examples/mixed_sources/lib:lib", "//examples/mixed_sources/lib:lib2"],
     declaration = True,
-    out_dir = ".",
+    out_dir = "dist",
+    allow_js = True,
+)
+
+ts_project(
+    name = "entry",
+    srcs = ["entry.ts"],
+    declaration = True,
+    out_dir = "dist",
+    allow_js = True,
     deps = [
-        "//examples/mixed_sources/lib",
-        "//examples/mixed_sources/lib:lib2",
+        ":ts",
     ],
 )
 
 js_binary(
     name = "bin",
-    entry_point = ":ts",
-    data = [":ts"],
+    entry_point = ":entry",
+    data = [":ts", ":entry"],
 )
