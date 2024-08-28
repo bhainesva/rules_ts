@@ -7,7 +7,8 @@ ts_project(
     declaration = True,
     out_dir = ".",
     deps = [
-        "//examples/mixed_sources/lib",
+        "//examples/mixed_sources/lib:lib",
+        "//examples/mixed_sources/lib:lib2",
         "//examples/js_lib:types",
     ],
 )

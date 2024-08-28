@@ -12,6 +12,6 @@ ts_project(
 
 js_library(
     name = "lib2",
-    srcs = ["lib2.js"],
+    types = ["lib2.js"],
     visibility = ["//examples/mixed_sources:__subpackages__"],
 )
