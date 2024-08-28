@@ -1,11 +1,10 @@
 """Example of a library that contains both typescript and javascript sources"""
 
-load("@aspect_rules_ts//ts:defs.bzl", "ts_project")
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 
 js_library(
     name = "nested",
-    srcs = ["nested.js"],
+    types = ["nested.js"],
     visibility = ["//examples/mixed_sources:__subpackages__"],
 )
 
