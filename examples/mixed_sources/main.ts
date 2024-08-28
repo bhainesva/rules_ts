@@ -1,5 +1,5 @@
 import { lib1 } from "./lib/lib1"
-import js_lib from "../js_lib/index"
+import * as js_lib from "../js_lib/index"
 
 const main = () => {
     lib1();
