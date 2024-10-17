@@ -47,7 +47,7 @@ load("@aspect_bazel_lib//lib:write_source_files.bzl", "write_source_files")
 load("@aspect_rules_js//js:defs.bzl", "js_binary")
 load("//ts/private:ts_proto_library.bzl", ts_proto_library_rule = "ts_proto_library")
 
-def ts_proto_library(name, node_modules, gen_connect_es = True, gen_connect_query = False, gen_connect_query_service_mapping = {}, copy_files = True, proto_srcs = None, files_to_copy = None, **kwargs):
+def ts_proto_library(name, node_modules, protoc_gen_options = {}, gen_connect_es = True, gen_connect_query = False, gen_connect_query_service_mapping = {}, copy_files = True, proto_srcs = None, files_to_copy = None, **kwargs):
     """
     A macro to generate JavaScript code and TypeScript typings from .proto files.
 
@@ -57,6 +57,8 @@ def ts_proto_library(name, node_modules, gen_connect_es = True, gen_connect_quer
             Since the generated code depends on @bufbuild/protobuf, this package must also be linked.
             If `gen_connect_es = True` then @bufbuild/proto-gen-connect-es should be linked as well.
             If `gen_connect_query = True` then @bufbuild/proto-gen-connect-query should be linked as well.
+        protoc_gen_options: dict of protoc_gen_es options.
+          See https://github.com/bufbuild/protobuf-es/tree/main/packages/protoc-gen-es#plugin-options
         gen_connect_es: whether protoc_gen_connect_es should generate grpc services, and therefore `*_connect.{js,d.ts}` should be written.
         gen_connect_query: whether protoc_gen_connect_query should generate [TanStack Query](https://tanstack.com/query) clients, and therefore `*_connectquery.{js,d.ts}` should be written.
         gen_connect_query_service_mapping: mapping from source proto file to the named RPC services that file contains.
@@ -131,6 +133,7 @@ def ts_proto_library(name, node_modules, gen_connect_es = True, gen_connect_quer
         gen_connect_es = gen_connect_es,
         gen_connect_query = gen_connect_query,
         gen_connect_query_service_mapping = gen_connect_query_service_mapping,
+        protoc_gen_options = protoc_gen_options,
         **kwargs
     )
 
